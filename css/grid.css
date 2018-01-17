@@ -1,0 +1,278 @@
+/* ==========================================================================
+   Style for grids - not using the popular 12 columns layout, rather
+                     using the CSS grid to structure the layout of the site
+   ========================================================================== */
+
+   .container {
+      display: grid;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-rows: auto;
+      grid-template-areas:
+        "header"
+        "main"
+        "footer";
+
+   }
+/* grid-row-start, grid-column-start, grid-row-end, grid-column-end */
+   .container .header {
+     grid-area: 1/1/2/2;
+     /*background: #fff;*/
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+     flex-direction: row;
+     padding: 0 15px;
+     position: fixed;
+     width: 100%;
+     z-index: 100;
+   }
+
+   .container .header .navs{
+     flex: 3;
+   }
+
+   .container .header .navs ul{
+     display: flex;
+     flex-direction: row;
+     list-style-type: none;
+     justify-content: flex-end;
+   }
+
+   .container .header .navs ul li{
+     display: block;
+     font-size: .9rem;
+     font-weight: 300;
+     flex: 1 1 60px;
+     text-align: center;
+     padding: 25px 0 20px 0;
+   }
+
+/*Give the last button in header bit more extra space*/
+   .container .header .navs ul li:last-child{
+     padding: 25px 10px 20px 10px;
+   }
+
+   .container .header .navs ul li a{
+     color: #000;
+     display: block;
+     cursor: pointer;
+     text-decoration: none;
+   }
+
+   .container .header .navs ul li a:hover{
+     opacity: 0.6;
+   }
+
+   .container .header .logo-container{
+     height: auto;
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+     align-content: flex-start;
+     flex-wrap: nowrap;
+     flex: 2;
+     padding: 20px 20px;
+   }
+
+   .container .header .logo-container img{
+     padding: 0;
+     margin: 0;
+   }
+
+   .container .header .logo-container .logo{
+     flex: 0 1 40px;
+     width: auto;
+     height: 30px;
+     background-image: url("../img/logo.svg");
+     background-repeat: no-repeat;
+   }
+
+   .container .header .logo-container .logo-text{
+     flex: auto;
+     width: auto;
+     height: 26px;
+     margin-top: 5px;
+     padding-top: 25px;
+     background-image: url("../img/logo-text.svg");
+     background-repeat: no-repeat;
+   }
+
+   /* ==========================================================================
+      Main
+      ========================================================================== */
+    .container .main {
+      grid-area: 2/1/3/2;
+      display: block;
+    }
+
+    .container .main h1{
+      color: #47525d;
+      font-size: 47px;
+      font-weight: 200;
+      margin-bottom: 20px;
+    }
+
+    .container .main h2{
+      color: #47525d;
+      font-size: 21px;
+      font-weight: 200;
+    }
+
+    .container .main .calculator {
+      display: grid;
+      width: 500px;
+      margin: 0 auto;
+      border: 2px solid rgba(143,135,124,0.2);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-rows: auto;
+      grid-template-areas:
+        "display"
+        "buttons";
+    }
+
+    /* grid-row-start, grid-column-start, grid-row-end, grid-column-end */
+    .container .main .calculator .result{
+      grid-area: 1/1/2/5;
+      display: block;
+      height: 100px;
+      width: auto;
+      background: rgba(143,135,124,0.5);
+    }
+
+    .container .main .calculator .result{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container .main .calculator .result .clear-btn{
+      flex: 1;
+      align-self: center;
+      padding: 0 20px 0 40px;
+    }
+
+    .container .main .calculator .result .clear-btn span{
+      display: block;
+      text-align: center;
+      cursor: pointer;
+      background: transparent;
+      color: #fff;
+      font-size: 2rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 20px;
+      margin: 8px;
+    }
+
+    .container .main .calculator .result .clear-btn span:hover{
+      background: rgba(143,135,124,0.5);
+    }
+
+    .container .main .calculator .result .clear-btn span:active{
+      transform: translate(0, 2px);
+    }
+
+    .container .main .calculator .result .display{
+      flex: 3;
+      width: 100%;
+      height: 40px;
+      text-align: right;
+      font-size: 2rem;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .container .main .calculator .calc{
+      grid-area: 2/1/7/5;
+      background: rgba(143,135,124,0.2);
+    }
+
+    .container .main .calculator .calc .calc-row{
+    }
+
+    .container .main .calculator .calc ul{
+      list-style: none;
+      display: flex;
+      max-width: auto;
+    }
+
+    .container .main .calculator .calc ul li{
+      display: block;
+      text-align: center;
+      cursor: pointer;
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      font-size: 2rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 20px;
+      margin: 8px;
+    }
+
+    .container .main .calculator .calc ul li:last-child{
+      background: #ed8c00;
+    }
+
+    .container .main .calculator .calc ul li:hover{
+      background: #fff;
+      color: #000;
+    }
+
+    .container .main .calculator .calc ul li:active{
+      -ms-transform: translate(0, 2px); /* IE 9 */
+      -webkit-transform: translate(0, 2px);
+      transform: translate(0, 2px);
+    }
+
+    footer{
+      padding: 50px;
+      align-items: center;
+    }
+
+    footer nav{
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    footer nav ul{
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 20px;
+    }
+
+    footer nav ul:last-child{
+      opacity: 0.5;
+    }
+
+    footer nav ul:last-child li::before{
+      content: "\f0ac";
+      font-family: 'FontAwesome';
+      display: inline-block;
+    }
+
+    footer nav ul:last-child li::after{
+      content: "\f0d8";
+      font-family: 'FontAwesome';
+      display: inline-block;
+    }
+
+    footer nav ul li{
+      align-self: flex-start;
+      display: block;
+      padding: 3px;
+      font-size: .9rem;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    footer nav ul li:first-child{
+      font-weight: 600;
+    }
